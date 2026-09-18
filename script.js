@@ -29,6 +29,17 @@
         currentYearEl.textContent = new Date().getFullYear();
       }
 
+      // Pointer detection & coordinates for card hover / particles
+      const hasFinePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      if (hasFinePointer) {
+        window.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        }, { passive: true });
+      }
+
       // ------------------------------------------------------------------------
       // 2. Dark / Light Mode Toggle with LocalStorage
       // ------------------------------------------------------------------------
@@ -334,13 +345,19 @@
             }
           });
         }, {
-          threshold: 0.08,
-          rootMargin: "0px 0px -30px 0px"
+          threshold: 0.04,
+          rootMargin: "0px 0px -10px 0px"
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
       } else {
         revealElements.forEach(el => el.classList.add("active"));
+      }
+
+      // Ensure hero elements are immediately visible on load
+      const homeSection = document.getElementById("home");
+      if (homeSection) {
+        homeSection.querySelectorAll(".reveal").forEach(el => el.classList.add("active"));
       }
 
       // ------------------------------------------------------------------------
