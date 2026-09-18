@@ -22,8 +22,6 @@
       const viewProjBtns = document.querySelectorAll(".view-proj-btn");
       const revealElements = document.querySelectorAll(".reveal");
       const scrollProgressBar = document.getElementById("scrollProgressBar");
-      const cursorDot = document.getElementById("cursorDot");
-      const cursorFollower = document.getElementById("cursorFollower");
       const interactiveCards = document.querySelectorAll(".interactive-card, .skill-item");
 
       // Set dynamic year
@@ -57,36 +55,7 @@
       }
       initTheme();
 
-      // ------------------------------------------------------------------------
-      // 3. Custom Smooth Mouse Cursor & Follower (Desktop Pointer Only)
-      // ------------------------------------------------------------------------
-      let mouseX = window.innerWidth / 2;
-      let mouseY = window.innerHeight / 2;
-      let followerX = mouseX;
-      let followerY = mouseY;
-      const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
-      if (cursorDot && cursorFollower && hasFinePointer) {
-        window.addEventListener("mousemove", (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-        }, { passive: true });
-
-        function animateCursor() {
-          followerX += (mouseX - followerX) * 0.18;
-          followerY += (mouseY - followerY) * 0.18;
-          cursorFollower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
-          requestAnimationFrame(animateCursor);
-        }
-        requestAnimationFrame(animateCursor);
-
-        const hoverTargets = document.querySelectorAll("a, button, .btn, .interactive-card, .skill-item, input, textarea, .tag");
-        hoverTargets.forEach((el) => {
-          el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
-          el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
-        });
-      }
 
       // ------------------------------------------------------------------------
       // 4. Mouse Move Spotlight & 3D Tilt on Cards (Desktop Pointer Only)
@@ -354,9 +323,25 @@
       }
 
       // ------------------------------------------------------------------------
-      // 8. Element Visibility (Scroll Reveal Animations Removed)
+      // 8. Scroll Reveal Animations (IntersectionObserver)
       // ------------------------------------------------------------------------
-      revealElements.forEach(el => el.classList.add("active"));
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.08,
+          rootMargin: "0px 0px -30px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add("active"));
+      }
 
       // ------------------------------------------------------------------------
       // 9. Project Modal Preview
