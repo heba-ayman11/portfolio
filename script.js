@@ -1,4 +1,4 @@
-﻿    (function () {
+    (function () {
       "use strict";
 
       // ------------------------------------------------------------------------
@@ -354,25 +354,9 @@
       }
 
       // ------------------------------------------------------------------------
-      // 8. Scroll Reveal Animations (IntersectionObserver)
+      // 8. Element Visibility (Scroll Reveal Animations Removed)
       // ------------------------------------------------------------------------
-      if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.08,
-          rootMargin: "0px 0px -30px 0px"
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add("active"));
-      }
+      revealElements.forEach(el => el.classList.add("active"));
 
       // ------------------------------------------------------------------------
       // 9. Project Modal Preview
