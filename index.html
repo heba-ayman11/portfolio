@@ -116,7 +116,7 @@
               A passionate Computer Science student and Full Stack .NET Developer dedicated to crafting responsive, high-performance web applications with modern Front-End technologies (React, JavaScript) and scalable C#, ASP.NET Core, and SQL Server backends.
             </p>
             
-            <!-- Exactly Two Main Action Buttons -->
+            <!-- Hero Action Buttons -->
             <div class="hero-actions">
               <a href="#contact" class="btn btn-primary" id="heroContactBtn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -124,6 +124,14 @@
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
                 Contact
+              </a>
+              <a href="CV_Heba Allah Ayman.pdf" class="btn btn-primary" id="heroDownloadCvBtn" download="CV_Heba Allah Ayman.pdf" title="Download Heba Ayman's CV (PDF)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download CV
               </a>
               <a href="#projects" class="btn btn-secondary" id="heroProjectsBtn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -194,18 +202,23 @@
           <!-- Left: Real Photo Card -->
           <div class="about-image-card interactive-card reveal">
             <div class="about-photo-wrapper">
-              <img src="about.png" alt="Heba Ayman - Full Stack .NET Developer" class="about-photo-img" id="aboutProfileImg">
+              <img src="about.png" alt="Full Stack .NET Developer" class="about-photo-img" id="aboutProfileImg">
               <div class="about-photo-overlay">
                 <span class="about-photo-badge">Full Stack .NET Developer</span>
               </div>
             </div>
           </div>
 
-          <!-- Right: Professional Bio & Pillars -->
+          <!-- Right: Professional Story & Pillars -->
           <div class="about-text-content reveal">
-            <p class="about-bio-text">
-              Heba Ayman is a Computer Science student and aspiring Full Stack .NET Developer interested in building modern, responsive, and user-friendly web applications. She has hands-on experience with frontend technologies including React.js and JavaScript, and is developing her backend skills using C#, .NET, ASP.NET Core, and SQL Server.
-            </p>
+            <div class="about-story-flow">
+              <p class="about-bio-text">
+                My journey into software development started with a genuine fascination for computer science and a passion for turning abstract ideas into interactive, intuitive web experiences. Driven by a desire to craft modern, responsive, and user-centric applications, I began by mastering frontend fundamentals with <strong>React.js</strong> and <strong>JavaScript</strong>—focusing on clean code and delightful interfaces.
+              </p>
+              <p class="about-bio-text">
+                As my curiosity deepened, I wanted to understand how large-scale web systems function behind the scenes. That led me to dive headfirst into backend engineering with <strong>C#</strong>, <strong>.NET</strong>, <strong>ASP.NET Core</strong>, and <strong>SQL Server</strong>—learning to design reliable Web APIs, manage data architecture, and architect complete full-stack applications. Today, every project is an opportunity to solve algorithmic puzzles and engineer solutions that unite rock-solid backend logic with effortless frontend usability.
+              </p>
+            </div>
 
             <div class="about-highlights reveal-stagger">
               <div class="highlight-box interactive-card">
@@ -548,7 +561,7 @@
                     DEPI (Digital Egypt Pioneers Initiative) / Project Training
                   </div>
                 </div>
-                <span class="exp-date">2024 &ndash; Present</span>
+                <span class="exp-date">August 2026 &ndash; Present</span>
               </div>
               <p class="exp-desc">
                 Engaged in building scalable enterprise web applications using C#, .NET, ASP.NET Core, and Microsoft SQL Server. Designing RESTful Web APIs, implementing Entity Framework Core object-relational mapping, and creating clean full-stack architectural solutions.
@@ -572,10 +585,10 @@
                   <h3 class="exp-role">Front-End & React Developer Trainee</h3>
                   <div class="exp-company">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                    ITI (Information Technology Institute) / Academic & Freelance Projects
+                    ITI (Information Technology Institute) / Front-End Training
                   </div>
                 </div>
-                <span class="exp-date">2023 &ndash; 2024</span>
+                <span class="exp-date">July 2026 &ndash; August 2026</span>
               </div>
               <p class="exp-desc">
                 Developed responsive, cross-browser single-page applications and web interfaces utilizing React.js, modern JavaScript (ES6+), HTML5, and CSS3. Focused on reusable component architecture, state management, mobile-first layouts, smooth web animations, and seamless API integration.
@@ -712,92 +725,59 @@
 
         <div class="projects-grid reveal-stagger">
 
-          <!-- Project 1: Travel Website -->
-          <div class="project-card interactive-card reveal">
-            <div class="project-visual-placeholder">
-              <div class="project-graphic">
-                <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-pink);">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  <circle cx="12" cy="13" r="3"></circle>
-                </svg>
-              </div>
-              <span class="project-badge-pill">Web Application</span>
+          <!-- Real Project: Wanderly -->
+          <div class="project-card interactive-card reveal" id="projectWanderlyCard">
+            <div class="project-visual-wrapper">
+              <img src="wanderly.png" alt="Wanderly — Smart Travel Discovery &amp; Trip Planner" class="project-thumbnail-img" loading="lazy">
+              <span class="project-badge-pill">Featured Project &bull; Travel Platform</span>
             </div>
             <div class="project-body">
-              <h3 class="project-name">Travel & Exploration Platform</h3>
+              <h3 class="project-name">Wanderly &mdash; Smart Travel Discovery &amp; Trip Planner</h3>
               <p class="project-desc">
-                An immersive travel discovery website enabling users to browse destinations, explore curated travel packages, view dynamic itineraries, and book tours with interactive filters.
+                Wanderly is a travel discovery and trip-planning website designed to help users explore destinations, discover accommodation options, and organize their travel experiences through a unified interface. The website includes a travel search interface with destination selection, check-in and check-out dates, and guest and room selection. It also features destination discovery, hotel exploration, itinerary planning, and travel-related user features.
               </p>
               <div class="project-tech">
-                <span class="tag">ASP.NET Core</span>
-                <span class="tag">C#</span>
-                <span class="tag">SQL Server</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
               </div>
-              <button class="btn btn-secondary project-action-btn view-proj-btn" data-project="Travel & Exploration Platform" data-desc="A full-stack travel discovery portal built with ASP.NET Core and SQL Server, featuring user authentication, booking workflows, destination exploration with interactive filtering, and responsive design.">
-                View Project
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </button>
+              <div class="project-actions-row">
+                <a href="https://wanderly-tau-liard.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="wanderlyLiveDemoBtn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/heba-ayman11/ppp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="wanderlyGithubBtn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  GitHub
+                </a>
+                <button type="button" class="btn btn-secondary btn-sm view-proj-btn" data-project="Wanderly — Smart Travel Discovery &amp; Trip Planner" data-desc="Wanderly is a travel discovery and trip-planning website designed to help users explore destinations, discover accommodation options, and organize their travel experiences through a unified interface. The website includes a travel search interface with destination selection, check-in and check-out dates, and guest and room selection. It also features destination discovery across authentic Egyptian governorates (سياحة داخلية) and global hotspots (سياحة خارجية), hotel exploration, itinerary planning, dynamic currency conversion, and travel-related user account features." data-live="https://wanderly-tau-liard.vercel.app/" data-github="https://github.com/heba-ayman11/ppp" data-img="wanderly.png" data-secondary-img="wanderly-destinations.png">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  Overview
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Project 2: E-commerce / Shopify Store -->
-          <div class="project-card interactive-card reveal">
-            <div class="project-visual-placeholder">
-              <div class="project-graphic">
-                <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-butter);">
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-              </div>
-              <span class="project-badge-pill">E-commerce / Shopify</span>
+          <!-- Real Project: Chirie Care -->
+          <div class="project-card interactive-card reveal" id="projectChirieCareCard">
+            <div class="project-visual-wrapper">
+              <img src="cherie-care.jpg" alt="Chirie Care — Shopify E-commerce Store" class="project-thumbnail-img" loading="lazy">
+              <span class="project-badge-pill">Shopify E-commerce</span>
             </div>
             <div class="project-body">
-              <h3 class="project-name">E-Commerce / Shopify Store</h3>
+              <h3 class="project-name">Chirie Care</h3>
               <p class="project-desc">
-                A modern digital storefront featuring custom branding, dynamic product listings, variant selectors, instant cart drawers, and an optimized checkout experience.
+                Chirie Care is a Shopify-based e-commerce store designed to present products through a clean, organized, and user-friendly shopping experience. The project focuses on storefront presentation, product discovery, and a consistent visual identity.
               </p>
               <div class="project-tech">
                 <span class="tag">Shopify</span>
-                <span class="tag">Liquid</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">CSS3</span>
               </div>
-              <button class="btn btn-secondary project-action-btn view-proj-btn" data-project="E-Commerce / Shopify Store" data-desc="A responsive e-commerce experience tailored for maximum conversions, featuring product filters, cart slide-out drawer, customer review integration, and mobile optimization.">
-                View Project
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Project 3: Front-End Web Application -->
-          <div class="project-card interactive-card reveal">
-            <div class="project-visual-placeholder">
-              <div class="project-graphic">
-                <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-lavender);">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="3" y1="9" x2="21" y2="9"></line>
-                  <line x1="9" y1="21" x2="9" y2="9"></line>
-                </svg>
+              <div class="project-actions-row">
+                <button type="button" class="btn btn-secondary btn-sm view-proj-btn" data-project="Chirie Care" data-desc="Chirie Care is a Shopify-based e-commerce store designed to present products through a clean, organized, and user-friendly shopping experience. The project focuses on storefront presentation, product discovery, and a consistent visual identity." data-live="" data-github="" data-img="cherie-care.jpg">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  View Details
+                </button>
               </div>
-              <span class="project-badge-pill">Front-End UI/UX</span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-name">Front-End Web Application</h3>
-              <p class="project-desc">
-                An interactive task & performance tracking dashboard with real-time metric updates, data visualizations, customizable light/dark themes, and persistent local storage.
-              </p>
-              <div class="project-tech">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">REST API</span>
-              </div>
-              <button class="btn btn-secondary project-action-btn view-proj-btn" data-project="Front-End Web Application" data-desc="A high-performance interactive dashboard web app showcasing modular JavaScript architecture, glassmorphism UI components, responsive layout, and state management.">
-                View Project
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </button>
             </div>
           </div>
 
@@ -805,17 +785,58 @@
       </div>
     </section>
 
-    <!-- Modal for Project Details -->
+    <!-- Modal for Project Details & Gallery Preview -->
     <div id="projectModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-box">
         <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close project modal">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
-        <h3 id="modalTitle" style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">Project Details</h3>
-        <p id="modalDesc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;"></p>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="#contact" class="btn btn-primary btn-sm" id="modalContactBtn">Inquire About This Project</a>
-          <button class="btn btn-secondary btn-sm" id="modalDismissBtn">Close Preview</button>
+        <div id="modalImageWrap" class="modal-image-wrap">
+          <img id="modalImg" src="wanderly.png" alt="Wanderly Preview" loading="lazy">
+        </div>
+        <div id="modalGalleryTabs" class="modal-gallery-tabs">
+          <button type="button" class="modal-tab-btn active" id="modalTabHero">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            Homepage &amp; Search
+          </button>
+          <button type="button" class="modal-tab-btn" id="modalTabDest">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Destination Discovery
+          </button>
+        </div>
+        <h3 id="modalTitle" style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; line-height: 1.3;">Project Details</h3>
+        <p id="modalDesc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-size: 0.95rem;"></p>
+        <div class="modal-actions-row" id="modalActionsRow">
+          <a href="https://wanderly-tau-liard.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="modalLiveBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/heba-ayman11/ppp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="modalGithubBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub
+          </a>
+          <button class="btn btn-secondary btn-sm" id="modalDismissBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate & Image Lightbox Modal -->
+    <div id="imageLightboxModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <div class="modal-box lightbox-box">
+        <button id="lightboxCloseBtn" class="modal-close-btn" aria-label="Close certificate preview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="lightbox-image-container">
+          <img id="lightboxImg" src="" alt="Certificate Preview">
+        </div>
+        <h3 id="lightboxTitle" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;">Certificate Preview</h3>
+        <p id="lightboxSubtitle" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px;">Official Verified Credential</p>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <a id="lightboxOpenNewTabBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Open Full Image
+          </a>
+          <button type="button" class="btn btn-secondary btn-sm" id="lightboxDismissBtn">Close</button>
         </div>
       </div>
     </div>
@@ -833,68 +854,112 @@
 
         <div class="achievements-grid reveal-stagger">
 
-          <!-- Achievement 1: ECPC Participant -->
-          <div class="achievement-card interactive-card reveal">
-            <div class="achievement-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="8" r="7"></circle>
-                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-              </svg>
+          <!-- Achievement 1: ECPC Participant (with verified certificate badge) -->
+          <div class="achievement-card interactive-card reveal has-media" id="achievementEcpcCard">
+            <div class="achievement-media-container" data-cert-src="ecpc-participant.png" data-cert-title="ECPC Participant — Egyptian Collegiate Programming Contest" title="Click to view full certificate">
+              <img src="ecpc-participant.png" alt="ECPC Participant - Egyptian Collegiate Programming Contest" class="achievement-media-img" loading="lazy">
+              <div class="achievement-media-overlay">
+                <span class="achievement-media-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  View Credential
+                </span>
+              </div>
             </div>
-            <h3 class="achievement-title">ECPC Participant</h3>
-            <div class="achievement-provider">Egyptian Collegiate Programming Contest</div>
-            <p class="achievement-desc">
-              Competed in problem solving and algorithmic programming challenges, developing algorithmic speed, C++ data structure implementations, and competitive teamwork.
-            </p>
-            <span class="achievement-status-badge">Competitive Programming</span>
+            <div class="achievement-body">
+              <div class="achievement-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+              <h3 class="achievement-title">ECPC Participant</h3>
+              <div class="achievement-provider">Egyptian Collegiate Programming Contest</div>
+              <p class="achievement-desc">
+                Competed in problem solving and algorithmic programming challenges, developing algorithmic speed, C++ data structure implementations, and competitive teamwork.
+              </p>
+              <span class="achievement-status-badge">Competitive Programming</span>
+            </div>
           </div>
 
-          <!-- Achievement 2: Front-End Training / ITI -->
-          <div class="achievement-card interactive-card reveal">
-            <div class="achievement-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
+          <!-- Achievement 2: Front-End Training / ITI (with verified certificate) -->
+          <div class="achievement-card interactive-card reveal has-media" id="achievementItiCard">
+            <div class="achievement-media-container" data-cert-src="iti-certificate.jpg" data-cert-title="ITI Web Development using React JS Certificate (162 Hours)" title="Click to view full certificate">
+              <img src="iti-certificate.jpg" alt="ITI Web Development using React JS Certificate - 162 Hours" class="achievement-media-img pos-bottom" loading="lazy">
+              <div class="achievement-media-overlay">
+                <span class="achievement-media-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  View Certificate
+                </span>
+              </div>
             </div>
-            <h3 class="achievement-title">Front-End & React Training</h3>
-            <div class="achievement-provider">Information Technology Institute (ITI)</div>
-            <p class="achievement-desc">
-              Intensive training program focused on modern frontend web development, React.js component architecture, responsive CSS layout systems, UI design standards, and modern JavaScript.
-            </p>
-            <span class="achievement-status-badge">Web Development Track</span>
+            <div class="achievement-body">
+              <div class="achievement-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <h3 class="achievement-title">Web Development with React JS</h3>
+              <div class="achievement-provider">Information Technology Institute (ITI)</div>
+              <p class="achievement-desc">
+                Completed an intensive 162-hour training track at ITI covering React.js component architecture, ECMAScript (ES6+), Modern JavaScript, responsive UI design, and AI workflow automation.
+              </p>
+              <span class="achievement-status-badge">162 Hours &bull; ITI Certified</span>
+            </div>
           </div>
 
-          <!-- Achievement 3: Full Stack .NET Training / DEPI -->
-          <div class="achievement-card interactive-card reveal">
-            <div class="achievement-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
+          <!-- Achievement 3: Full Stack .NET Training / DEPI (with verified specialization credential) -->
+          <div class="achievement-card interactive-card reveal has-media" id="achievementDepiCard">
+            <div class="achievement-media-container" data-cert-src="depi-dotnet.jpg" data-cert-title="Full Stack .NET Specialization — DEPI (Digital Egypt Pioneers Initiative)" title="Click to view full credential">
+              <img src="depi-dotnet.jpg" alt="Full Stack .NET Specialization - DEPI" class="achievement-media-img" loading="lazy">
+              <div class="achievement-media-overlay">
+                <span class="achievement-media-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  View Credential
+                </span>
+              </div>
             </div>
-            <h3 class="achievement-title">Full Stack .NET Training</h3>
-            <div class="achievement-provider">Digital Egypt Pioneers Initiative (DEPI)</div>
-            <p class="achievement-desc">
-              Comprehensive government-backed specialization program covering enterprise C#, ASP.NET Core, SQL Server database design, and web API development.
-            </p>
-            <span class="achievement-status-badge">Full Stack .NET Track</span>
+            <div class="achievement-body">
+              <div class="achievement-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="achievement-title">Full Stack .NET Training</h3>
+              <div class="achievement-provider">Digital Egypt Pioneers Initiative (DEPI)</div>
+              <p class="achievement-desc">
+                Comprehensive government-backed specialization program covering enterprise C#, ASP.NET Core, SQL Server database design, and web API development.
+              </p>
+              <span class="achievement-status-badge">Full Stack .NET Track</span>
+            </div>
           </div>
 
-          <!-- Achievement 4: Problem Solving & Certifications Placeholder -->
-          <div class="achievement-card interactive-card reveal">
-            <div class="achievement-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-              </svg>
+          <!-- Achievement 4: Academic & Technical Honors (with verified honors visual) -->
+          <div class="achievement-card interactive-card reveal has-media" id="achievementHonorsCard">
+            <div class="achievement-media-container" data-cert-src="academic-honors.jpg" data-cert-title="Academic &amp; Technical Honors — Faculty of Computers and Information" title="Click to view full credential">
+              <img src="academic-honors.jpg" alt="Academic &amp; Technical Honors - Faculty of Computers and Information" class="achievement-media-img" loading="lazy">
+              <div class="achievement-media-overlay">
+                <span class="achievement-media-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  View Credential
+                </span>
+              </div>
             </div>
-            <h3 class="achievement-title">Academic & Technical Honors</h3>
-            <div class="achievement-provider">Faculty of Computers and Information</div>
-            <p class="achievement-desc">
-              Consistently maintaining a high GPA of 3.31, actively solving problem-solving sheets on online judges, and mastering foundational computer science curricula.
-            </p>
-            <span class="achievement-status-badge">Academic Excellence</span>
+            <div class="achievement-body">
+              <div class="achievement-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h3 class="achievement-title">Academic & Technical Honors</h3>
+              <div class="achievement-provider">Faculty of Computers and Information</div>
+              <p class="achievement-desc">
+                Consistently maintaining a high GPA of 3.31, actively solving problem-solving sheets on online judges, and mastering foundational computer science curricula.
+              </p>
+              <span class="achievement-status-badge">Academic Excellence</span>
+            </div>
           </div>
 
         </div>
@@ -907,71 +972,70 @@
     <section id="feedback" class="feedback-section" aria-label="Feedback and Testimonials Section">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-badge">Client & Colleague Endorsements</div>
-          <h2 class="section-title">Feedback & Testimonials</h2>
-          <p class="section-subtitle">What peers, mentors, and collaborators say about working with Heba</p>
+          <div class="section-badge">Recommendations &amp; Collaboration</div>
+          <h2 class="section-title">Feedback &amp; Recommendations</h2>
+          <p class="section-subtitle">Collaborative teamwork highlights, peer feedback, and recommendation channels</p>
         </div>
 
-        <div class="feedback-grid reveal-stagger">
+        <!-- Feedback & Endorsements Showcase -->
+        <div class="feedback-grid reveal-stagger" id="reviewsGrid">
 
-          <!-- Testimonial 1 -->
+          <!-- Collaboration Track 1: Front-End & UI Engineering -->
           <div class="feedback-card interactive-card reveal">
-            <span class="feedback-demo-badge">Demo Endorsement</span>
+            <span class="feedback-verified-badge">ITI Web Track</span>
             <svg class="feedback-quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
             <p class="feedback-quote">
-              "Heba has a sharp eye for clean UI design and translates technical requirements into seamless frontend experiences. Her passion for .NET backend development makes her a very versatile developer."
+              "Demonstrated strong front-end expertise during hands-on web sessions—delivering responsive, accessible user interfaces with React, modern CSS, and clean component architecture."
             </p>
             <div class="feedback-author">
-              <div class="author-avatar-placeholder">SN</div>
+              <div class="author-avatar-placeholder">FE</div>
               <div class="author-info">
-                <h4>Sarah Nabil</h4>
-                <p>Senior Front-End Engineer</p>
-                <div class="stars-rating" aria-label="5 stars rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h4>Front-End &amp; UI Engineering</h4>
+                <p>Information Technology Institute (ITI)</p>
               </div>
             </div>
           </div>
 
-          <!-- Testimonial 2 -->
+          <!-- Collaboration Track 2: Full-Stack .NET & Backend Development -->
           <div class="feedback-card interactive-card reveal">
-            <span class="feedback-demo-badge">Demo Endorsement</span>
+            <span class="feedback-verified-badge">DEPI .NET Specialization</span>
             <svg class="feedback-quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
             <p class="feedback-quote">
-              "Working with Heba during our project team sessions was fantastic. Her grasp of C# and SQL Server structure alongside her problem-solving speed helped our team deliver on time."
+              "Demonstrated rigorous backend problem solving, mastering C#, ASP.NET Core, database design with SQL Server, and designing clean Web APIs through intensive technical coursework."
             </p>
             <div class="feedback-author">
-              <div class="author-avatar-placeholder">AM</div>
+              <div class="author-avatar-placeholder">FS</div>
               <div class="author-info">
-                <h4>Ahmed Mahmoud</h4>
-                <p>Team Lead / .NET Architect</p>
-                <div class="stars-rating" aria-label="5 stars rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h4>Full Stack .NET Development</h4>
+                <p>Digital Egypt Pioneers Initiative (DEPI)</p>
               </div>
             </div>
           </div>
 
-          <!-- Testimonial 3 -->
+          <!-- Collaboration Track 3: Team Problem Solving & Competitive Programming -->
           <div class="feedback-card interactive-card reveal">
-            <span class="feedback-demo-badge">Demo Endorsement</span>
+            <span class="feedback-verified-badge">ECPC Participant</span>
             <svg class="feedback-quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
             <p class="feedback-quote">
-              "Heba demonstrated exceptional dedication during our training program. Her ability to quickly master new web frameworks and create polished, responsive applications is admirable."
+              "Recognized for strong analytical thinking, structured algorithms, and collaborative team communication during collegiate programming contests and group technical challenges."
             </p>
             <div class="feedback-author">
-              <div class="author-avatar-placeholder">ME</div>
+              <div class="author-avatar-placeholder">CP</div>
               <div class="author-info">
-                <h4>Mona El-Sayed</h4>
-                <p>Technical Instructor / Mentor</p>
-                <div class="stars-rating" aria-label="5 stars rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h4>Competitive Problem Solving</h4>
+                <p>ECPC &amp; Collegiate Programming</p>
               </div>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
 
@@ -1056,15 +1120,15 @@
 
           </div>
 
-          <!-- Right: Client-Side Validated Contact Form -->
+          <!-- Right: Client-Side Validated Contact Form (Composes directly via Visitor's Email Client) -->
           <div class="contact-form-card interactive-card reveal">
             <h3 class="form-title">Send a Message</h3>
-            <p class="form-subtitle">Fill in the fields below and I'll respond promptly</p>
+            <p class="form-subtitle">Fill in the fields below to compose an email directly to hebaayman913@gmail.com</p>
 
-            <!-- Success Alert State -->
-            <div id="formSuccessAlert" class="form-alert success" role="alert">
+            <!-- Informative Notice Alert State -->
+            <div id="formSuccessAlert" class="form-alert success" role="status" aria-live="polite" hidden>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              <span>Thank you! Your message has been sent successfully.</span>
+              <span id="formSuccessText">Your email app should open with your message ready. If it doesn't, <a href="mailto:hebaayman913@gmail.com" id="fallbackMailLink" style="color: inherit; text-decoration: underline; font-weight: 700;">click here to email directly</a>.</span>
             </div>
 
             <form id="contactForm" novalidate>
@@ -1098,7 +1162,7 @@
 
               <button type="submit" class="btn btn-primary" id="submitContactBtn" style="width: 100%;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                Send Message
+                Compose &amp; Send Email
               </button>
             </form>
           </div>
@@ -1122,8 +1186,11 @@
       </p>
       <div class="footer-links">
         <a href="#home" class="footer-link">Home</a>
+        <a href="#about" class="footer-link">About</a>
         <a href="#skills" class="footer-link">Skills</a>
         <a href="#projects" class="footer-link">Projects</a>
+        <a href="#achievements" class="footer-link">Achievements</a>
+        <a href="#feedback" class="footer-link">Feedback</a>
         <a href="#contact" class="footer-link">Contact</a>
       </div>
     </div>

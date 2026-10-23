@@ -16,13 +16,20 @@
       const projectModal = document.getElementById("projectModal");
       const modalTitle = document.getElementById("modalTitle");
       const modalDesc = document.getElementById("modalDesc");
+      const modalImageWrap = document.getElementById("modalImageWrap");
+      const modalImg = document.getElementById("modalImg");
+      const modalGalleryTabs = document.getElementById("modalGalleryTabs");
+      const modalTabHero = document.getElementById("modalTabHero");
+      const modalTabDest = document.getElementById("modalTabDest");
+      const modalLiveBtn = document.getElementById("modalLiveBtn");
+      const modalGithubBtn = document.getElementById("modalGithubBtn");
       const modalCloseBtn = document.getElementById("modalCloseBtn");
       const modalDismissBtn = document.getElementById("modalDismissBtn");
-      const modalContactBtn = document.getElementById("modalContactBtn");
       const viewProjBtns = document.querySelectorAll(".view-proj-btn");
       const revealElements = document.querySelectorAll(".reveal");
       const scrollProgressBar = document.getElementById("scrollProgressBar");
       const interactiveCards = document.querySelectorAll(".interactive-card, .skill-item");
+
 
       // Set dynamic year
       if (currentYearEl) {
@@ -72,6 +79,24 @@
       // 4. Mouse Move Spotlight & 3D Tilt on Cards (Desktop Pointer Only)
       // ------------------------------------------------------------------------
       if (hasFinePointer) {
+        const cursor = document.createElement("div");
+        cursor.className = "custom-cursor";
+        cursor.setAttribute("aria-hidden", "true");
+        document.body.appendChild(cursor);
+        let cursorFrame = 0;
+        window.addEventListener("mousemove", (event) => {
+          if (cursorFrame) return;
+          cursorFrame = window.requestAnimationFrame(() => {
+            cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+            cursor.classList.add("is-visible");
+            cursorFrame = 0;
+          });
+        }, { passive: true });
+        document.addEventListener("mouseover", (event) => {
+          cursor.classList.toggle("is-hovering", Boolean(event.target.closest("a, button, input, textarea, select, [role='button']")));
+        }, { passive: true });
+        document.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
+
         interactiveCards.forEach((card) => {
           card.addEventListener("mousemove", (e) => {
             const rect = card.getBoundingClientRect();
@@ -363,9 +388,54 @@
       // ------------------------------------------------------------------------
       // 9. Project Modal Preview
       // ------------------------------------------------------------------------
-      function openProjectModal(name, desc) {
+      let currentHeroImg = "";
+      let currentDestImg = "";
+
+      function openProjectModal(name, desc, liveUrl, githubUrl, imgUrl, secondaryImgUrl) {
         if (modalTitle) modalTitle.textContent = name;
         if (modalDesc) modalDesc.textContent = desc;
+
+        currentHeroImg = imgUrl || "";
+        currentDestImg = secondaryImgUrl || "";
+
+        if (modalImg && modalImageWrap) {
+          if (imgUrl) {
+            modalImg.src = imgUrl;
+            modalImg.alt = name;
+            modalImageWrap.style.display = "block";
+          } else {
+            modalImageWrap.style.display = "none";
+          }
+        }
+
+        if (modalGalleryTabs) {
+          if (secondaryImgUrl) {
+            modalGalleryTabs.style.display = "flex";
+            if (modalTabHero) modalTabHero.classList.add("active");
+            if (modalTabDest) modalTabDest.classList.remove("active");
+          } else {
+            modalGalleryTabs.style.display = "none";
+          }
+        }
+
+        if (modalLiveBtn) {
+          if (liveUrl) {
+            modalLiveBtn.href = liveUrl;
+            modalLiveBtn.style.display = "inline-flex";
+          } else {
+            modalLiveBtn.style.display = "none";
+          }
+        }
+
+        if (modalGithubBtn) {
+          if (githubUrl) {
+            modalGithubBtn.href = githubUrl;
+            modalGithubBtn.style.display = "inline-flex";
+          } else {
+            modalGithubBtn.style.display = "none";
+          }
+        }
+
         if (projectModal) {
           projectModal.classList.add("active");
           projectModal.setAttribute("aria-hidden", "false");
@@ -381,21 +451,48 @@
         }
       }
 
+      if (modalTabHero) {
+        modalTabHero.addEventListener("click", function () {
+          if (currentHeroImg && modalImg) {
+            modalImg.style.opacity = "0.4";
+            setTimeout(() => {
+              modalImg.src = currentHeroImg;
+              modalImg.style.opacity = "1";
+            }, 100);
+            modalTabHero.classList.add("active");
+            if (modalTabDest) modalTabDest.classList.remove("active");
+          }
+        });
+      }
+
+      if (modalTabDest) {
+        modalTabDest.addEventListener("click", function () {
+          if (currentDestImg && modalImg) {
+            modalImg.style.opacity = "0.4";
+            setTimeout(() => {
+              modalImg.src = currentDestImg;
+              modalImg.style.opacity = "1";
+            }, 100);
+            modalTabDest.classList.add("active");
+            if (modalTabHero) modalTabHero.classList.remove("active");
+          }
+        });
+      }
+
       viewProjBtns.forEach(btn => {
         btn.addEventListener("click", function () {
           const name = this.getAttribute("data-project") || "Project Details";
           const desc = this.getAttribute("data-desc") || "Project overview and specifications.";
-          openProjectModal(name, desc);
+          const liveUrl = this.getAttribute("data-live") || "";
+          const githubUrl = this.getAttribute("data-github") || "";
+          const imgUrl = this.getAttribute("data-img") || "";
+          const secondaryImgUrl = this.getAttribute("data-secondary-img") || "";
+          openProjectModal(name, desc, liveUrl, githubUrl, imgUrl, secondaryImgUrl);
         });
       });
 
       if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeProjectModal);
       if (modalDismissBtn) modalDismissBtn.addEventListener("click", closeProjectModal);
-      if (modalContactBtn) {
-        modalContactBtn.addEventListener("click", function () {
-          closeProjectModal();
-        });
-      }
       if (projectModal) {
         projectModal.addEventListener("click", function (e) {
           if (e.target === projectModal) {
@@ -404,10 +501,72 @@
         });
       }
 
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && projectModal && projectModal.classList.contains("active")) {
+          closeProjectModal();
+        }
+      });
+
       // ------------------------------------------------------------------------
-      // 10. Contact Form Client-Side Validation & Friendly Feedback
+      // 9b. Certificate & Image Lightbox Modal
+      // ------------------------------------------------------------------------
+      const imageLightboxModal = document.getElementById("imageLightboxModal");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxTitle = document.getElementById("lightboxTitle");
+      const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
+      const lightboxDismissBtn = document.getElementById("lightboxDismissBtn");
+      const lightboxOpenNewTabBtn = document.getElementById("lightboxOpenNewTabBtn");
+      const certMediaContainers = document.querySelectorAll(".achievement-media-container");
+
+      function openLightbox(src, title) {
+        if (!imageLightboxModal || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = title || "Certificate Preview";
+        if (lightboxTitle) lightboxTitle.textContent = title || "Certificate Preview";
+        if (lightboxOpenNewTabBtn) lightboxOpenNewTabBtn.href = src;
+        imageLightboxModal.classList.add("active");
+        imageLightboxModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        if (!imageLightboxModal) return;
+        imageLightboxModal.classList.remove("active");
+        imageLightboxModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      certMediaContainers.forEach(container => {
+        container.addEventListener("click", function () {
+          const src = this.getAttribute("data-cert-src");
+          const title = this.getAttribute("data-cert-title");
+          if (src) {
+            openLightbox(src, title);
+          }
+        });
+      });
+
+      if (lightboxCloseBtn) lightboxCloseBtn.addEventListener("click", closeLightbox);
+      if (lightboxDismissBtn) lightboxDismissBtn.addEventListener("click", closeLightbox);
+      if (imageLightboxModal) {
+        imageLightboxModal.addEventListener("click", function (e) {
+          if (e.target === imageLightboxModal) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && imageLightboxModal && imageLightboxModal.classList.contains("active")) {
+          closeLightbox();
+        }
+      });
+
+      // ------------------------------------------------------------------------
+      // 10. Contact Form Client-Side Validation & Email Composition
       // ------------------------------------------------------------------------
       if (contactForm) {
+        if (formSuccessAlert) formSuccessAlert.hidden = true;
         contactForm.addEventListener("submit", function (e) {
           e.preventDefault();
 
@@ -425,41 +584,54 @@
           [nameGroup, emailGroup, subjectGroup, messageGroup].forEach(g => {
             if (g) g.classList.remove("has-error");
           });
-          if (formSuccessAlert) formSuccessAlert.style.display = "none";
+          if (formSuccessAlert) formSuccessAlert.hidden = true;
 
-          if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+          const name = nameInput ? nameInput.value.trim() : "";
+          const email = emailInput ? emailInput.value.trim() : "";
+          const subject = subjectInput ? subjectInput.value.trim() : "";
+          const message = messageInput ? messageInput.value.trim() : "";
+
+          if (!name || name.length < 2) {
             if (nameGroup) nameGroup.classList.add("has-error");
             isValid = false;
           }
 
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+          if (!email || !emailRegex.test(email)) {
             if (emailGroup) emailGroup.classList.add("has-error");
             isValid = false;
           }
 
-          if (!subjectInput.value.trim()) {
+          if (!subject) {
             if (subjectGroup) subjectGroup.classList.add("has-error");
             isValid = false;
           }
 
-          if (!messageInput.value.trim() || messageInput.value.trim().length < 10) {
+          if (!message || message.length < 10) {
             if (messageGroup) messageGroup.classList.add("has-error");
             isValid = false;
           }
 
           if (isValid) {
+            const emailSubject = `[Portfolio Contact] ${subject} - from ${name}`;
+            const emailBody = `Hi Heba,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent via portfolio contact form`;
+            const mailtoUrl = `mailto:hebaayman913@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+            const fallbackMailLink = document.getElementById("fallbackMailLink");
+            if (fallbackMailLink) {
+              fallbackMailLink.href = mailtoUrl;
+            }
+
             if (formSuccessAlert) {
-              formSuccessAlert.style.display = "flex";
+              formSuccessAlert.hidden = false;
               formSuccessAlert.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
-            contactForm.reset();
 
-            setTimeout(() => {
-              if (formSuccessAlert) formSuccessAlert.style.display = "none";
-            }, 8000);
+            // Launch visitor's default email client
+            window.location.href = mailtoUrl;
           }
         });
       }
 
     })();
+

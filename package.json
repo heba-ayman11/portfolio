@@ -1,0 +1,23 @@
+{
+  "name": "heba-ayman-portfolio",
+  "version": "1.0.0",
+  "description": "Heba Ayman - Personal Portfolio with Client Reviews & Private CV Management",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test_suite.js"
+  },
+  "keywords": [
+    "portfolio",
+    "dotnet",
+    "developer",
+    "express"
+  ],
+  "author": "Heba Ayman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

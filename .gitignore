@@ -8,3 +8,14 @@ Desktop.ini
 .idea/
 *.suo
 *.user
+
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+
+# SQLite WAL and Shm temporary files
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
